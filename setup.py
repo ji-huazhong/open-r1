@@ -42,18 +42,18 @@ if stale_egg_info.exists():
 #   * If a dependency is fast-moving (e.g. transformers), pin to the exact version
 _deps = [
     "accelerate>=1.2.1",
-    "bitsandbytes>=0.43.0",
+    # "bitsandbytes>=0.43.0",
     "datasets>=3.2.0",
     "deepspeed==0.15.4",
     "distilabel[vllm,ray,openai]>=1.5.2",
     "einops>=0.8.0",
     "flake8>=6.0.0",
-    "flash_attn>=2.7.4.post1",
+    # "flash_attn>=2.7.4.post1",
     "hf_transfer>=0.1.4",
     "huggingface-hub[cli]>=0.19.2,<1.0",
     "isort>=5.12.0",
     "latex2sympy2_extended>=1.0.6",
-    "liger_kernel==0.5.2",
+    # "liger_kernel==0.5.2",
     "lighteval @ git+https://github.com/huggingface/lighteval.git@86f62259f105ae164f655e0b91c92a823a742724#egg=lighteval[math]",
     "math-verify==0.5.2",  # Used for math verification in grpo
     "packaging>=23.0",
@@ -64,8 +64,8 @@ _deps = [
     "sentencepiece>=0.1.99",
     "torch==2.5.1",
     "transformers @ git+https://github.com/huggingface/transformers.git@main",
-    "trl @ git+https://github.com/huggingface/trl.git@main",
-    "vllm==0.7.1",
+    # "trl @ git+https://github.com/huggingface/trl.git@main",
+    # "vllm==0.7.1",
     "wandb>=0.19.1",
 ]
 
@@ -86,14 +86,14 @@ extras = {}
 extras["tests"] = deps_list("pytest", "parameterized", "math-verify")
 extras["torch"] = deps_list("torch")
 extras["quality"] = deps_list("ruff", "isort", "flake8")
-extras["train"] = deps_list("flash_attn")
+#extras["train"] = deps_list("flash_attn")
 extras["eval"] = deps_list("lighteval", "math-verify")
-extras["dev"] = extras["quality"] + extras["tests"] + extras["eval"] + extras["train"]
+extras["dev"] = extras["quality"] + extras["tests"] + extras["eval"] #+ extras["train"]
 
 # core dependencies shared across the whole project - keep this to a bare minimum :)
 install_requires = [
     deps["accelerate"],
-    deps["bitsandbytes"],
+    # deps["bitsandbytes"],
     deps["einops"],
     deps["datasets"],
     deps["deepspeed"],
@@ -101,12 +101,12 @@ install_requires = [
     deps["huggingface-hub"],
     deps["latex2sympy2_extended"],
     deps["math-verify"],
-    deps["liger_kernel"],
+    # deps["liger_kernel"],
     deps["packaging"],  # utilities from PyPA to e.g., compare versions
     deps["safetensors"],
     deps["sentencepiece"],
     deps["transformers"],
-    deps["trl"],
+    # deps["trl"],
 ]
 
 setup(
